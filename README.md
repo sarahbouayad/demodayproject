@@ -5,10 +5,12 @@ This is a fullstack app that will serve as a tool for immigrant where the user c
 
 ## Demo
 
-![Demo]()
-![Demo]()
-![Demo]()
-![Demo]()
+![login](https://user-images.githubusercontent.com/112355619/200358399-e2f60189-65b9-4258-966f-6c3827d18232.png)
+![Screen Shot 2022-11-06 at 11 20 17 PM](https://user-images.githubusercontent.com/112355619/200358429-991227dc-d3f6-40fd-9c87-fd67264f8770.png)
+![Screen Shot 2022-11-06 at 11 20 09 PM](https://user-images.githubusercontent.com/112355619/200358459-62b33047-4ac8-435e-98b6-35fc55a76f10.png)
+![Screen Shot 2022-11-06 at 11 20 50 PM](https://user-images.githubusercontent.com/112355619/200358479-5f96b7e2-596d-4337-8692-772c1813d428.png)
+
+
 
 
 
@@ -32,4 +34,4 @@ I have enjoyed creating my idea from scratch, and bring it to life.
 
 ## Optimization 
 
-- Styling
+- Styling and linking to page. 
