@@ -12,12 +12,7 @@ module.exports = function(app, passport, db) {
         db.collection('list').find({name: req.user.local.email}).toArray((err, result) => {
   
           if (err) return console.log(err)
-          let nyc = result.filter(hash => hash.dropDown === 'dropDown_newYork')
-          let philly = result.filter(hash => hash.dropDown === 'dropDown_philadelphia')
-          let boston = result.filter(hash => hash.dropDown === 'dropDown_boston')
-          let pittsburgh = result.filter(hash => hash.dropDown === 'dropDown_pittsburgh')
-          // do it for the other cities
-          let arr = [nyc,boston,philly,pittsburgh].flat()
+          
           res.render('profile.ejs', {
             user : req.user,
             list: arr
@@ -36,16 +31,9 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/messages', (req, res) => {
-      console.log(req.body.jobListing)
-      console.log(req.body.connect)
       db.collection('list').insertOne(
         {
         name: req.body.name,
-        jobListing: req.body.jobListing, 
-        connect: req.body.connect, 
-        msg: req.body.msg, 
-        checkBox: false,
-        dropDown: req.body.dropDown
       },
     (err, result) => {
         if (err) return console.log(err)

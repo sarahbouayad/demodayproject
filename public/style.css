@@ -1,29 +1,21 @@
 body{
-  padding-top:80px;
   word-wrap:break-word;
 }
 
-img{
-  height: 200px;
+.btn-outline-light{
+  color: white; 
+  border: white 1px solid;
 }
 
-.check-green{
-  color: green;
-  background-color: rgb(2, 127, 2); 
-}
 
-.check-regular{
-  color:black; 
+.loginh1{
+  color:rgba(13, 12, 12, 0.756);
+}
+ 
+.loginText{
+  color:rgba(13, 12, 12, 0.756);
 }
 
 .well{
-  display: none;
-}
-
-/* .collectionContainer{
-  display: flexbox; 
-} */
-
-.form-select{
-  height: 2em;
+  display: none; 
 }

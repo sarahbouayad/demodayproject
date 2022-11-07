@@ -3,25 +3,115 @@
 
 <head>
   <title>Profile</title>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-  <link rel="stylesheet" href="style.css">
-  <script src="https://kit.fontawesome.com/43daf91e79.js" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <div class="container">
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="nav-header">
-        <a class="navbar-brand">Profile Page</a>
-      </div>
-        <div class="navbar-header" style="float: right">
-          <a href="/logout" class="btn btn-primary my-2 my-sm-0">Logout</a>
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/profile">Gathered & Empowered</a>
+        <button 
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarText"
+          aria-controls="navbarText"
+          aria-expanded="false"
+          aria-label="Toggle navigation"><i class="fas fa-bars"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/profile">Dashboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="">Spaces</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">PDF Converter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Progress</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Explore</a>
+              </li>
+
+            </ul>
+            <span class="navbar-text">
+              <a href="/logout" class="btn btn-outline-warning my-2 my-sm-0">Logout</a>
+            </span>
+         </div>
         </div>
+      </div>
     </nav>
 
-    <div class="row">
+      <div class="row">
+        <div class="col-sm">
+          <% if (user.local.email) { %>
+            <form class=”form-inline” class="" action="/messages" method="POST" role="form">
+              <div class="form-group">
+                <div class="col-6 col-sm-4">
+                  <div class="input-group mb-3" style="padding-top:20px;">
+                    <input type="text" value="<%= user.local.email %>" name="name" class="form-control"
+                      aria-describedby="basic-addon1" required>
+                  </div>
+                </div>
+              </div>
+            </form>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <img src="/img/translate.jpg" class="card-img-top" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+              <h5 class="card-title">Convert Any PDF</h5>
+              <p class="card-text">Use this tool to translate your documents</p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <img src="/img/unity.jpg" class="card-img-top" alt="Fissure in Sandstone"/>
+            <div class="card-body">
+              <h5 class="card-title">Sanctuary Spaces</h5>
+              <p class="card-text">Find a community anywhere.</p>
+              <a href="#!" class="btn btn-primary">Button</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 col-md-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Check Out Your Progress!</h5>
+              <p class="card-text">Keep Checking Those Tasks Off!</p>
+              <a href="#" class="btn btn-primary">Navigate to Progress</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <br>  
+     
+  
 
       <!-- LOCAL INFORMATION, class hidden -->
       <div class="col-sm-12">
@@ -38,200 +128,11 @@
             <a href="/unlink/local" class="btn btn-default">Unlink</a>
             <% } else { %>
               <a href="/connect/local" class="btn btn-default">Connect Local</a>
-              <% } %>
+            <% } %>
 
         </div>
       </div>
-
-      <div class="col-sm-12">
-          <div class="p-5 text-center bg-image" style="background-image: url('img/jobart.jpg'); height: 350px;">
-            <h3>Jobs</h3>
-          </div>
-        <% if (user.local.email) { %>
-          <form class=”form-inline” class="" action="/messages" method="POST" role="form">
-            <div class="form-group">
-              <div class="input-group mb-3">
-                <span class="input-group-addon">@</span>
-                <input type="text" value="<%= user.local.email %>" name="name" class="form-control"
-                  aria-describedby="basic-addon1" required>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Job Listing" value="" name="jobListing" required>
-              </div>
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" placeholder="Connect's Name" name="connect" required>
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Message" name="msg" required>
-              </div>
-              <div class="form-group">
-                <select name="dropDown" class="form-control" aria-label="Default select example" placeholder="Location">
-                  <option selected>Location</option>
-                  <option value="dropDown_newYork" name="New York">New York</option>
-                  <option value="dropDown_philadelphia" name="dropDown_philadelphia">Philadelphia</option>
-                  <option value="dropDown_boston" name="dropDown_boston">Boston</option>
-                  <option value="dropDown_pittsburgh" name="dropDown_pittsburgh">Pittsburgh</option>
-                </select>
-
-
-              </div>
-              <button type="submit" class="btn btn-primary mb-2">Submit</button>
-
-            </div>
-          </form>
-    
-
-          <!-- container for new york category -->
-          <div>
-            <h4>New York</h4>
-            <ul class="newYorkCollection  .list-group-flush">
-              <% for(var i=0; i <list.length; i++) {%>
-                <% if(list[i].dropDown==="dropDown_newYork" ) { %>
-                  <li class="listofNewYorkJobs list-group-item">
-                    <span class="list-group-item">
-                      <%= list[i].name %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].jobListing %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].connect %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].msg %>
-                    </span>
-                    <% if(list[i].checkBox===true) { %>
-                      <span class="list-group-item"><i class="fa-regular fa-square check-green" data-checkbox="true"
-                          aria-hidden="true"></i></span>
-                      <% } else { %>
-                        <span class="list-group-item"><i class="fa-regular fa-square check-regular"
-                            data-checkbox="false" aria-hidden="true"></i></span>
-                        <% } %>
-
-                          <span class="list-group-item"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                  </li>
-                  <% } %>
-
-                    <% } %>
-            </ul>
-          </div>
-
-          <!-- container for boston category -->
-
-          <div class="collectionContainer">
-            <h4>Boston</h4>
-            <ul class="bostonCollection .list-group-flush">
-              <% for(var i=0; i <list.length; i++) {%>
-                <% if(list[i].dropDown==="dropDown_boston" ) { %>
-                  <li class="bostonJobs list-group-item">
-                    <span class="list-group-item">
-                      <%= list[i].name %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].jobListing %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].connect %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].msg %>
-                    </span>
-                    <% if(list[i].checkBox===true) { %>
-                      <span class="list-group-item"><i class="fa-regular fa-square check-green" data-checkbox="true"
-                          aria-hidden="true"></i></span>
-                      <% } else { %>
-                        <span class="list-group-item"><i class="fa-regular fa-square check-regular"
-                            data-checkbox="false" aria-hidden="true"></i></span>
-                        <% } %>
-
-                          <span class="list-group-item"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                  </li>
-                  <% } %>
-
-                    <% } %>
-            </ul>
-          </div>
-
-          <!-- container for philadelphia category -->
-          <div class="collectionContainer">
-            <h4>Philadelphia</h4>
-            <ul class="philadelphiaCollection .list-group-flush">
-              <% for(var i=0; i <list.length; i++) {%>
-                <% if(list[i].dropDown==="dropDown_philadelphia" ) { %>
-                  <li class="phillyJobs list-group-item">
-                    <<span class="list-group-item">
-                      <%= list[i].name %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].jobListing %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].connect %>
-                    </span>
-                    <span class="list-group-item">
-                      <%= list[i].msg %>
-                    </span>
-                    <% if(list[i].checkBox===true) { %>
-                      <span class="list-group-item"><i class="fa-regular fa-square check-green" data-checkbox="true"
-                          aria-hidden="true"></i></span>
-                      <% } else { %>
-                        <span class="list-group-item"><i class="fa-regular fa-square check-regular"
-                            data-checkbox="false" aria-hidden="true"></i></span>
-                        <% } %>
-                          <span class="list-group-item"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                  </li>
-                  <% } %>
-
-                    <% } %>
-            </ul>
-          </div>
-
-          <!-- container for pittsburgh category -->
-
-          <div class="collectionContainer">
-            <h4>Pittsburgh</h4>
-            <ul class="pittCollection .list-group-flush">
-              <% for(var i=0; i <list.length; i++) {%>
-                <% if(list[i].dropDown==="dropDown_pittsburgh" ) { %>
-                  <li class="list-group-item">
-                    <span class="list-group-item" class="list-group-item">
-                      <%= list[i].name %>
-                    </span>
-                    <span class="list-group-item" class="list-group-item">
-                      <%= list[i].jobListing %>
-                    </span>
-                    <span class="list-group-item" class="list-group-item">
-                      <%= list[i].connect %>
-                    </span>
-                    <span class="list-group-item" class="list-group-item">
-                      <%= list[i].msg %>
-                    </span>
-
-                    <% if(list[i].checkBox===true) { %>
-                      <span class="list-group-item"><i class="fa-regular fa-square check-green" data-checkbox="true"
-                          aria-hidden="true"></i></span>
-                      <% } else { %>
-                      <span class="list-group-item"><i class="fa-regular fa-square check-regular"
-                            data-checkbox="false" aria-hidden="true"></i></span>
-                      <% } %>
-                      <span class="list-group-item"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-                  </li>
-                  <% } %>
-
-                <% } %>
-            </ul>
-          </div>
-
-
-
-
-
-      </div>
       <% } %>
-    </div>
-  </div>
 
   <script src="main.js"></script>
 
