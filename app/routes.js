@@ -9,7 +9,7 @@ module.exports = function(app, passport, db) {
 
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
-        db.collection('list').find({name: req.user.local.email}).toArray((err, result) => {
+        db.collection('demo').find({name: req.user.local.email}).toArray((err, result) => {
   
           if (err) return console.log(err)
           
@@ -31,7 +31,7 @@ module.exports = function(app, passport, db) {
 // message board routes ===============================================================
 
     app.post('/messages', (req, res) => {
-      db.collection('list').insertOne(
+      db.collection('demo').insertOne(
         {
         name: req.body.name,
       },
@@ -47,7 +47,7 @@ module.exports = function(app, passport, db) {
 
     app.put('/messages', (req, res) => {
       console.log(req.body)
-      db.collection('list').findOneAndUpdate(
+      db.collection('demo').findOneAndUpdate(
         {
           name: req.body.name, 
           msg: req.body.msg,
@@ -71,7 +71,7 @@ module.exports = function(app, passport, db) {
   })
 
     app.delete('/messages', (req, res) => {
-      db.collection('list').findOneAndDelete({
+      db.collection('demo').findOneAndDelete({
         name: req.body.name, 
         msg: req.body.msg}, (err, result) => {
         if (err) return res.send(500, err)
