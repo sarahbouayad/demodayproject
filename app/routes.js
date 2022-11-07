@@ -15,7 +15,7 @@ module.exports = function(app, passport, db) {
           
           res.render('profile.ejs', {
             user : req.user,
-            list: arr
+            list: result
           })
         })
     });
