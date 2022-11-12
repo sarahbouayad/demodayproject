@@ -3,14 +3,17 @@ module.exports = function(app, passport, db) {
 // normal routes ===============================================================
 
     // show the home page (will also have our login links)
+
     app.get('/', function(req, res) {
         res.render('index.ejs');
     });
 
+
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
+      // find user by ID, using ID value
         db.collection('demo').find({name: req.user.local.email}).toArray((err, result) => {
-  
+
           if (err) return console.log(err)
           
           res.render('profile.ejs', {
@@ -19,6 +22,16 @@ module.exports = function(app, passport, db) {
           })
         })
     });
+
+
+    app.get('/convert', isLoggedIn, function(req, res) {
+      res.render('convert.ejs', {
+          user : req.user
+      })
+    });
+
+
+    // have same app.get for other pages
 
     // LOGOUT ==============================
     app.get('/logout', function(req, res) {
